@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <title>Code coverage report for node-npmtest-jsonwebtoken/jsonwebtoken/sign.js</title>
     <meta charset="utf-8">
     <style>
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-jsonwebtoken/jsonwebtoken/</a> &#187; sign.js</div>
+    <div class="path"><a href="../../index.html">All files</a> » <a href="index.html">node-npmtest-jsonwebtoken/jsonwebtoken/</a> » sign.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -556,116 +554,117 @@ var options_for_objects = [
   'jwtid',
 ];
 &nbsp;
-module.exports = <span class="fstat-no" title="function not covered" >function (payload, secretOrPrivateKey, options, callback) {</span>
-<span class="cstat-no" title="statement not covered" >  options = options || {};</span>
+module.exports = <span class="fstat-no" title="function not covered">function (payload, secretOrPrivateKey, options, callback) {</span>
+<span class="cstat-no" title="statement not covered">  options = options || {};</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var isObjectPayload = typeof payload === 'object' &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered">  var isObjectPayload = typeof payload === 'object' &amp;&amp;</span>
                         !Buffer.isBuffer(payload);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var header = xtend({</span>
+<span class="cstat-no" title="statement not covered">  var header = xtend({</span>
     alg: options.algorithm || 'HS256',
     typ: isObjectPayload ? 'JWT' : undefined,
     kid: options.keyid
   }, options.header);
 &nbsp;
-<span class="fstat-no" title="function not covered" >  function failure(err) {</span>
-<span class="cstat-no" title="statement not covered" >    if (callback) {</span>
-<span class="cstat-no" title="statement not covered" >      return callback(err);</span>
+<span class="fstat-no" title="function not covered">  function failure(err) {</span>
+<span class="cstat-no" title="statement not covered">    if (callback) {</span>
+<span class="cstat-no" title="statement not covered">      return callback(err);</span>
     }
-<span class="cstat-no" title="statement not covered" >    throw err;</span>
+<span class="cstat-no" title="statement not covered">    throw err;</span>
   }
 &nbsp;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (typeof payload === 'undefined') {</span>
-<span class="cstat-no" title="statement not covered" >    return failure(new Error('payload is required'));</span>
-  } else <span class="cstat-no" title="statement not covered" >if (isObjectPayload) {</span>
-<span class="cstat-no" title="statement not covered" >    var payload_validation_result = registered_claims_schema.validate(payload);</span>
+<span class="cstat-no" title="statement not covered">  if (typeof payload === 'undefined') {</span>
+<span class="cstat-no" title="statement not covered">    return failure(new Error('payload is required'));</span>
+  } else <span class="cstat-no" title="statement not covered">if (isObjectPayload) {</span>
+<span class="cstat-no" title="statement not covered">    var payload_validation_result = registered_claims_schema.validate(payload);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (payload_validation_result.error) {</span>
-<span class="cstat-no" title="statement not covered" >      return failure(payload_validation_result.error);</span>
+<span class="cstat-no" title="statement not covered">    if (payload_validation_result.error) {</span>
+<span class="cstat-no" title="statement not covered">      return failure(payload_validation_result.error);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    payload = xtend(payload);</span>
+<span class="cstat-no" title="statement not covered">    payload = xtend(payload);</span>
   } else {
-<span class="cstat-no" title="statement not covered" >    var invalid_options = options_for_objects.filter(<span class="fstat-no" title="function not covered" >function (opt) {</span></span>
-<span class="cstat-no" title="statement not covered" >      return typeof options[opt] !== 'undefined';</span>
+<span class="cstat-no" title="statement not covered">    var invalid_options = options_for_objects.filter(<span class="fstat-no" title="function not covered">function (opt) {</span></span>
+<span class="cstat-no" title="statement not covered">      return typeof options[opt] !== 'undefined';</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (invalid_options.length &gt; 0) {</span>
-<span class="cstat-no" title="statement not covered" >      return failure(new Error('invalid ' + invalid_options.join(',') + ' option for ' + (typeof payload ) + ' payload'));</span>
+<span class="cstat-no" title="statement not covered">    if (invalid_options.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered">      return failure(new Error('invalid ' + invalid_options.join(',') + ' option for ' + (typeof payload ) + ' payload'));</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (typeof payload.exp !== 'undefined' &amp;&amp; typeof options.expiresIn !== 'undefined') {</span>
-<span class="cstat-no" title="statement not covered" >    return failure(new Error('Bad "options.expiresIn" option the payload already has an "exp" property.'));</span>
+<span class="cstat-no" title="statement not covered">  if (typeof payload.exp !== 'undefined' &amp;&amp; typeof options.expiresIn !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered">    return failure(new Error('Bad "options.expiresIn" option the payload already has an "exp" property.'));</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (typeof payload.nbf !== 'undefined' &amp;&amp; typeof options.notBefore !== 'undefined') {</span>
-<span class="cstat-no" title="statement not covered" >    return failure(new Error('Bad "options.notBefore" option the payload already has an "nbf" property.'));</span>
+<span class="cstat-no" title="statement not covered">  if (typeof payload.nbf !== 'undefined' &amp;&amp; typeof options.notBefore !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered">    return failure(new Error('Bad "options.notBefore" option the payload already has an "nbf" property.'));</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var validation_result = sign_options_schema.validate(options);</span>
+<span class="cstat-no" title="statement not covered">  var validation_result = sign_options_schema.validate(options);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (validation_result.error) {</span>
-<span class="cstat-no" title="statement not covered" >    return failure(validation_result.error);</span>
+<span class="cstat-no" title="statement not covered">  if (validation_result.error) {</span>
+<span class="cstat-no" title="statement not covered">    return failure(validation_result.error);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var timestamp = payload.iat || Math.floor(Date.now() / 1000);</span>
+<span class="cstat-no" title="statement not covered">  var timestamp = payload.iat || Math.floor(Date.now() / 1000);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (!options.noTimestamp) {</span>
-<span class="cstat-no" title="statement not covered" >    payload.iat = timestamp;</span>
+<span class="cstat-no" title="statement not covered">  if (!options.noTimestamp) {</span>
+<span class="cstat-no" title="statement not covered">    payload.iat = timestamp;</span>
   } else {
-<span class="cstat-no" title="statement not covered" >    delete payload.iat;</span>
+<span class="cstat-no" title="statement not covered">    delete payload.iat;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (typeof options.notBefore !== 'undefined') {</span>
-<span class="cstat-no" title="statement not covered" >    payload.nbf = timespan(options.notBefore);</span>
-<span class="cstat-no" title="statement not covered" >    if (typeof payload.nbf === 'undefined') {</span>
-<span class="cstat-no" title="statement not covered" >      return failure(new Error('"notBefore" should be a number of seconds or string representing a timespan eg: "1d", "20h", 60'));</span>
+<span class="cstat-no" title="statement not covered">  if (typeof options.notBefore !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered">    payload.nbf = timespan(options.notBefore);</span>
+<span class="cstat-no" title="statement not covered">    if (typeof payload.nbf === 'undefined') {</span>
+<span class="cstat-no" title="statement not covered">      return failure(new Error('"notBefore" should be a number of seconds or string representing a timespan eg: "1d", "20h", 60'));</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (typeof options.expiresIn !== 'undefined' &amp;&amp; typeof payload === 'object') {</span>
-<span class="cstat-no" title="statement not covered" >    payload.exp = timespan(options.expiresIn, timestamp);</span>
-<span class="cstat-no" title="statement not covered" >    if (typeof payload.exp === 'undefined') {</span>
-<span class="cstat-no" title="statement not covered" >      return failure(new Error('"expiresIn" should be a number of seconds or string representing a timespan eg: "1d", "20h", 60'));</span>
+<span class="cstat-no" title="statement not covered">  if (typeof options.expiresIn !== 'undefined' &amp;&amp; typeof payload === 'object') {</span>
+<span class="cstat-no" title="statement not covered">    payload.exp = timespan(options.expiresIn, timestamp);</span>
+<span class="cstat-no" title="statement not covered">    if (typeof payload.exp === 'undefined') {</span>
+<span class="cstat-no" title="statement not covered">      return failure(new Error('"expiresIn" should be a number of seconds or string representing a timespan eg: "1d", "20h", 60'));</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  Object.keys(options_to_payload).forEach(<span class="fstat-no" title="function not covered" >function (key) {</span></span>
-<span class="cstat-no" title="statement not covered" >    var claim = options_to_payload[key];</span>
-<span class="cstat-no" title="statement not covered" >    if (typeof options[key] !== 'undefined') {</span>
-<span class="cstat-no" title="statement not covered" >      if (typeof payload[claim] !== 'undefined') {</span>
-<span class="cstat-no" title="statement not covered" >        return failure(new Error('Bad "options.' + key + '" option. The payload already has an "' + claim + '" property.'));</span>
+<span class="cstat-no" title="statement not covered">  Object.keys(options_to_payload).forEach(<span class="fstat-no" title="function not covered">function (key) {</span></span>
+<span class="cstat-no" title="statement not covered">    var claim = options_to_payload[key];</span>
+<span class="cstat-no" title="statement not covered">    if (typeof options[key] !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered">      if (typeof payload[claim] !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered">        return failure(new Error('Bad "options.' + key + '" option. The payload already has an "' + claim + '" property.'));</span>
       }
-<span class="cstat-no" title="statement not covered" >      payload[claim] = options[key];</span>
+<span class="cstat-no" title="statement not covered">      payload[claim] = options[key];</span>
     }
   });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var encoding = options.encoding || 'utf8';</span>
+<span class="cstat-no" title="statement not covered">  var encoding = options.encoding || 'utf8';</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (typeof callback === 'function') {</span>
-<span class="cstat-no" title="statement not covered" >    callback = callback &amp;&amp; once(callback);</span>
+<span class="cstat-no" title="statement not covered">  if (typeof callback === 'function') {</span>
+<span class="cstat-no" title="statement not covered">    callback = callback &amp;&amp; once(callback);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    jws.createSign({</span>
+<span class="cstat-no" title="statement not covered">    jws.createSign({</span>
       header: header,
       privateKey: secretOrPrivateKey,
       payload: payload,
       encoding: encoding
     }).once('error', callback)
-      .once('done', <span class="fstat-no" title="function not covered" >function (signature) {</span>
-<span class="cstat-no" title="statement not covered" >        callback(null, signature);</span>
+      .once('done', <span class="fstat-no" title="function not covered">function (signature) {</span>
+<span class="cstat-no" title="statement not covered">        callback(null, signature);</span>
       });
   } else {
-<span class="cstat-no" title="statement not covered" >    return jws.sign({header: header, payload: payload, secret: secretOrPrivateKey, encoding: encoding});</span>
+<span class="cstat-no" title="statement not covered">    return jws.sign({header: header, payload: payload, secret: secretOrPrivateKey, encoding: encoding});</span>
   }
 };
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
     <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat Apr 15 2017 21:55:42 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>
