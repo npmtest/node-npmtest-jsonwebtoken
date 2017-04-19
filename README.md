@@ -1,6 +1,6 @@
 # npmtest-jsonwebtoken
 
-#### test coverage for  [jsonwebtoken (v7.3.0)](https://github.com/auth0/node-jsonwebtoken#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-jsonwebtoken.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-jsonwebtoken) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-jsonwebtoken.svg)](https://travis-ci.org/npmtest/node-npmtest-jsonwebtoken)
+#### basic test coverage for  [jsonwebtoken (v7.3.0)](https://github.com/auth0/node-jsonwebtoken#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-jsonwebtoken.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-jsonwebtoken) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-jsonwebtoken.svg)](https://travis-ci.org/npmtest/node-npmtest-jsonwebtoken)
 
 #### JSON Web Token implementation (symmetric and asymmetric)
 
